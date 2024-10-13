@@ -8,7 +8,7 @@ if (profileViewButton) {
 const exit=document.getElementById('exit2');
 if(exit){
     exit.addEventListener('click',function(){
-        window.location.href='banklogin.html';
+        window.location.href='index.html';
     })
 }
 
