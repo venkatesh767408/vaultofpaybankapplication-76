@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="bank.css">
+</head>
+<body id="loginbody">
+    
+    <div id="container">
+        <h1 id="head">Vaultofpay</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required placeholder="Enter username">
+        <br>
+        <label for="password">password :</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <input type="checkbox" class="toggle-password" onclick="togglePasswordVisibility()">
+        <label for="toggle-password">Show</label>
+        <br>
+        <button type="submit" id="submit">Login</button>
+    </div>
+    <script>
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const submit = document.getElementById('submit');
+        let attempts = 0;
+
+        submit.onclick = function() {
+            if (username.value == "venkatesh7674" && password.value == "7674081610") {
+                window.location.href = "bank.html";
+            } else {
+                if (attempts >= 5) {
+                    window.alert("You tried so many attempts, please visit the bank");
+                } else {
+                    window.alert("Enter correct credentials");
+                }
+                attempts++;
+            }
+        }
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleBtn = document.querySelector(".toggle-password");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleBtn.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                toggleBtn.textContent = "Show";
+            }
+        }
+    </script>
+</body>
+</html>

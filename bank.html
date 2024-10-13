@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vaultofpay</title>
+    <link rel="stylesheet" href="bank.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .form-container h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"], .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="main">
+            <img src="Black and Gold Modern Gradient Banking Finance Logo.png" alt="logo" id="logo">
+            <h3 id="bankname">vaultofpay</h3> 
+        </div> 
+    </div>
+
+    <!-- Main Account Section -->
+    <div id="account-section">
+        <div id="account-info">
+            <p id="account-number">Account Number</p>
+            <P id="a-n">675857575757</P>
+            <p id="account-balance">Account Balance</p>
+            <input type="text" id="a-n1" value="1000" readonly>
+        </div>
+
+        <div id="footer">
+            <div id="profile">
+                <img src="bankimg/profile.jpg" alt="profile" width="50px">
+                <br>
+                <button class="btn" id="btn1">Profile</button>
+            </div>
+            <div id="profile">
+                <img src="bankimg/mobile-banking.png" alt="profile" width="50px">
+                <br>
+                <button class="btn" id="fundtransfer-btn">Fund Transfer</button>
+            </div>
+            <div id="profile">
+                <img src="bankimg/mobile-app.png" alt="profile" width="50px">
+                <br>
+                <button class="btn" id="recharge-billpay-btn">Recharge & Bill Pay</button>
+            </div>
+            <div id="profile">
+                <img src="bankimg/atm-machine.png" alt="profile" width="50px">
+                <br>
+                <button class="btn" id="atm">ATM pin Generation</button>
+            </div>
+            <div id="profile">
+                <img src="bankimg/customer-care.png" alt="profile" width="50px">
+                <br>
+                <button class="btn" id="customercare">Enquires</button>
+            </div>
+        </div>
+
+        <div id="exit">
+            <button type="button" id="exit2">Logout</button>
+        </div>
+    </div>
+
+    <!-- Fund Transfer Section (Hidden by default) -->
+    <div class="form-container hidden" id="fund-transfer-section">
+        <h2>Fund Transfer</h2>
+        <div class="form-group">
+            <label for="bankname-transfer">Bank Name</label>
+            <input type="text" id="bankname-transfer" placeholder="Enter Bank Name">
+        </div>
+        <div class="form-group">
+            <label for="account-number-transfer">Recipient's Account Number</label>
+            <input type="text" id="account-number-transfer" placeholder="Enter Account Number" minlength="10" maxlength="10">
+        </div>
+        <div class="form-group">
+            <label for="ifsc-code-transfer">IFSC Code</label>
+            <input type="text" id="ifsc-code-transfer" placeholder="Enter IFSC Code">
+        </div>
+        <div class="form-group">
+            <label for="amount-transfer">Amount (Rs)</label>
+            <input type="number" id="amount-transfer" placeholder="Enter Amount" min="1" max="100000">
+        </div>
+        <button class="submit-btn" id="submit-transfer">Transfer</button>
+        <p class="success-message" id="transfer-success-message">Successfully Transferred!</p>
+        <button id="back-fundtransfer-btn">Back</button>
+    </div>
+
+    
+    <div class="form-container hidden" id="recharge-billpay-section">
+        <h2>Recharge & Bill Pay</h2>
+        <div class="form-group">
+            <label for="mobile-number-recharge">Mobile Number</label>
+            <input type="text" id="mobile-number-recharge" placeholder="Enter Mobile Number" minlength="10" maxlength="10">
+        </div>
+        <div class="form-group">
+            <label for="amount-recharge-billpay">Amount (Rs)</label>
+            <input type="number" id="amount-recharge-billpay" placeholder="Enter Amount" min="1" max="100000">
+        </div>
+        <button class="submit-btn" id="submit-recharge-billpay">Recharge</button>
+        <p class="success-message" id="recharge-billpay-success-message">Recharge Successful!</p>
+        <button id="back-recharge-billpay-btn">Back</button>
+    </div>
+
+
+    <script src="bank.js">
+       
+    </script>
+</body>
+</html>

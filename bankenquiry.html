@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Enquiries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .enquiry-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .edit-profile-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-profile-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="enquiry-container">
+    <h2>Bank Enquiries</h2>
+    <div class="form-group">
+        <label for="enquiry-reason">Reason for Enquiry</label>
+        <select id="enquiry-reason">
+            <option value="" disabled selected>Select your reason</option>
+            <option value="account">Account Issues</option>
+            <option value="transaction">Transaction Issues</option>
+            <option value="services">Services Inquiry</option>
+            <option value="support">Customer Support</option>
+            <option value="feedback">Feedback/Suggestions</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="details">Additional Details</label>
+        <textarea id="details" rows="4" placeholder="Please provide more details..."></textarea>
+    </div>
+    <button class="submit-btn" id="submit-enquiry">Submit Enquiry</button>
+    <p class="success-message" id="success-message">We will solve your issue as soon as possible!</p>
+    <div style="text-align: center;">
+        <a href="bank.html" class="edit-profile-btn">Back</a> 
+    </div>
+</div>
+
+<script>
+    const submitEnquiryBtn = document.getElementById('submit-enquiry');
+    const successMessage = document.getElementById('success-message');
+
+    submitEnquiryBtn.addEventListener('click', function () {
+        const enquiryReason = document.getElementById('enquiry-reason').value;
+        const additionalDetails = document.getElementById('details').value;
+
+        if (enquiryReason && additionalDetails) {
+            successMessage.style.display = 'block';
+            // Optionally, clear the form fields
+            document.getElementById('enquiry-reason').selectedIndex = 0;
+            document.getElementById('details').value = '';
+        } else {
+            alert('Please select a reason and provide additional details.');
+        }
+    });
+</script>
+
+</body>
+</html>

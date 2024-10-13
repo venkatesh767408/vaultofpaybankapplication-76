@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Pin Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .atm-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="number"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .success-message, .error-message {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .success-message {
+            color: #28a745;
+        }
+
+        .error-message {
+            color: #e74c3c;
+        }
+        .edit-profile-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-profile-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="atm-container">
+    <h2>ATM Pin Generation</h2>
+
+    
+    <div id="otp-section">
+        <p>A One-Time Password (OTP) has been sent to your registered mobile number.</p>
+        <div class="form-group">
+            <label for="otp">Enter OTP</label>
+            <input type="text" id="otp" placeholder="Enter the OTP">
+        </div>
+        <button class="submit-btn" id="submit-otp">Submit OTP</button>
+        <p class="error-message" id="otp-error-message">Invalid OTP, please try again.</p>
+    </div>
+
+    
+    <div id="pin-section" class="hidden">
+        <div class="form-group">
+            <label for="new-pin">Set New ATM Pin</label>
+            <input type="password" id="new-pin" placeholder="Enter New ATM Pin" minlength="4" maxlength="4">
+        </div>
+        <div class="form-group">
+            <label for="confirm-pin">Confirm New ATM Pin</label>
+            <input type="password" id="confirm-pin" placeholder="Confirm New ATM Pin" minlength="4" maxlength="4">
+        </div>
+        <button class="submit-btn" id="submit-pin">Set ATM Pin</button>
+        <p class="success-message" id="pin-success-message">ATM Pin set successfully!</p>
+        <p class="error-message" id="pin-error-message">Pins do not match. Please try again.</p>
+    </div>
+    <div style="text-align: center;">
+        <a href="bank.html" class="edit-profile-btn">Back</a> 
+    </div>
+</div>
+
+<script>
+    
+    const generatedOtp = "5675";
+
+    
+    const otpSection = document.getElementById('otp-section');
+    const pinSection = document.getElementById('pin-section');
+    const submitOtpBtn = document.getElementById('submit-otp');
+    const otpInput = document.getElementById('otp');
+    const otpErrorMessage = document.getElementById('otp-error-message');
+    const newPinInput = document.getElementById('new-pin');
+    const confirmPinInput = document.getElementById('confirm-pin');
+    const submitPinBtn = document.getElementById('submit-pin');
+    const pinSuccessMessage = document.getElementById('pin-success-message');
+    const pinErrorMessage = document.getElementById('pin-error-message');
+
+    
+    submitOtpBtn.addEventListener('click', function() {
+        const enteredOtp = otpInput.value;
+        if (enteredOtp === generatedOtp) {
+            otpSection.classList.add('hidden');
+            pinSection.classList.remove('hidden');
+            submitPinBtn.addEventListener('click', function() {
+        const newPin = newPinInput.value;
+        const confirmPin = confirmPinInput.value;
+
+        if (newPin === confirmPin && newPin.length === 4) {
+            pinSuccessMessage.style.display = 'block';
+            pinErrorMessage.style.display = 'none';
+        } else {
+            pinErrorMessage.style.display = 'block';
+            pinSuccessMessage.style.display = 'none';
+        }
+    });
+        } else {
+            otpErrorMessage.style.display = 'block';
+        }
+    });
+
+    
+    
+</script>
+
+</body>
+</html>
